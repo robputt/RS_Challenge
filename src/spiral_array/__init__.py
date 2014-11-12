@@ -57,6 +57,7 @@ def spiral_array(input_array):
         current_x += 1
         current_y += 1
 
+        #If not done move on to the next layer in and repeat.
         if len(output_array) >= total_values:
             not_done = False
             output_array = output_array[0:total_values]
@@ -107,13 +108,12 @@ def array_generator(x_length, y_length):
         Returns:
                     array - 2D array of specified size with dummy data.
     '''
-    output_array = [[0 for x in xrange(x_length)] for x in xrange(y_length)]
+    output_array = [[0 for lx in xrange(x_length)] for ly in xrange(y_length)]
     counter = 1
-    
+
     for row in range(0, y_length):
-        current_row = []
         for column in range(0, x_length):
             output_array[row][column] = counter
             counter += 1
-    
+
     return output_array

@@ -6,8 +6,8 @@ Created on 12 Nov 2014
 
 from spiral_array import spiral_array, print_2d_array, array_generator
 
-#Define a 2D array to test the spiral_array function. In this case 3x3.
-input_array = array_generator(3,8)
+#Generate a sample array to use against the spiral function.
+input_array = array_generator(4,4)
 
 #Print the array so it is easier for debug.
 print "Input Array:"
