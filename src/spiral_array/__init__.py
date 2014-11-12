@@ -57,8 +57,9 @@ def spiral_array(input_array):
         current_x += 1
         current_y += 1
 
-        if len(output_array) == total_values:
+        if len(output_array) >= total_values:
             not_done = False
+            output_array = output_array[0:total_values]
         else:
             layer += 1
 
@@ -73,7 +74,7 @@ def print_2d_array(input_array):
 
     '''
     dimensions = get_array_dimensions(input_array)
-    print "Dimensions %sx%s" % (dimensions['y'], dimensions['x'])
+    print "Dimensions %sx%s" % (dimensions['x'], dimensions['y'])
 
     for row in range(0, dimensions['y']):
         row_output = ""
@@ -93,3 +94,26 @@ def get_array_dimensions(input_array):
                                  {'x': <x_length>, 'y': <y_length>}
     '''
     return {"y":len(input_array), "x":len(input_array[(len(input_array) - 1)])}
+
+def array_generator(x_length, y_length):
+    '''
+        Takes required x and y length of array and generated a 2D array
+        with specified lengths and generated dummy numerical data.
+
+        Args:
+                    x_lenght - length of x side of array (int)
+                    y_length - length of y side of array (int)
+
+        Returns:
+                    array - 2D array of specified size with dummy data.
+    '''
+    output_array = [[0 for x in xrange(x_length)] for x in xrange(y_length)]
+    counter = 1
+    
+    for row in range(0, y_length):
+        current_row = []
+        for column in range(0, x_length):
+            output_array[row][column] = counter
+            counter += 1
+    
+    return output_array
